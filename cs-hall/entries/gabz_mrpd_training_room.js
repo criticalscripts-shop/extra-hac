@@ -1,7 +1,7 @@
 gabz_mrpd_training_room: {
     enabled: true,
 
-    idleWallpaperUrl: 'https://files.criticalscripts.shop/resources/cs-hall/wallpaper.png',
+    idleWallpaperUrl: 'https://files.criticalscripts.shop/cs-hall-dui/wallpaper.png',
 
     area: {
         range: 24.0,

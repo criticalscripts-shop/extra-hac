@@ -1,7 +1,7 @@
 arena_wars: {
     enabled: true,
 
-    idleWallpaperUrl: 'https://files.criticalscripts.shop/resources/cs-hall/wallpaper.png',
+    idleWallpaperUrl: 'https://files.criticalscripts.shop/cs-hall-dui/wallpaper.png',
 
     area: {
         range: 256.0,
