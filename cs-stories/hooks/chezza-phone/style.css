@@ -1,0 +1,563 @@
+.cs-stories-container * {
+    user-select: none;
+}
+
+.cs-stories-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #2b2b2b !important;
+    opacity: 1 !important;
+}
+
+.cs-stories-container .cs-stories-inner-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cs-stories-container .cs-stories-loading-wrapper {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #2b2b2b;
+    z-index: 5;
+}
+
+.cs-stories-container .cs-stories-video-wrapper {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.cs-stories-container .cs-stories-video-wrapper #cs-stories-self-video, .cs-stories-container .cs-stories-video-wrapper #cs-stories-video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.cs-stories-container .cs-stories-video-wrapper #cs-stories-video-player {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #2b2b2b;
+    width: 100%;
+    height: 100%;
+}
+
+.cs-stories-container .cs-stories-video-wrapper #cs-stories-video-time {
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+    overflow: hidden;
+    -webkit-appearance: none;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: -3px;
+    margin: 0;
+    border: 0;
+    background: rgba(10, 10, 10, 0.85);
+}
+
+.cs-stories-container .cs-stories-video-wrapper #cs-stories-video-time span {
+    background: #ed163a;
+    width: 0%;
+    height: 5px;
+    position: absolute;
+    left: 1px;
+}
+
+.cs-stories-container .cs-stories-wrapper, .cs-stories-container .cs-stories-video-wrapper, .cs-stories-container .cs-stories-upload-wrapper, .cs-stories-container .cs-stories-video-delete-wrapper, .cs-stories-container .cs-stories-record-wrapper .cs-stories-progress-ring {
+    display: none;
+}
+
+.cs-stories-container .cs-stories-home-wrapper, .cs-stories-container .cs-stories-close-video-wrapper, .cs-stories-container .cs-stories-view-wrapper, .cs-stories-container .cs-stories-record-wrapper, .cs-stories-container .cs-stories-upload-wrapper, .cs-stories-container .cs-stories-video-delete-wrapper, .cs-stories-container .cs-stories-close-record-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 250px;
+}
+
+.cs-stories-container .cs-stories-close-record-wrapper {
+    z-index: 7;
+    text-align: center;
+    left: 0;
+    top: -250px;
+}
+
+.cs-stories-container .cs-stories-upload-wrapper button, .cs-stories-container .cs-stories-video-delete-wrapper button {
+    margin: 0 7px;
+}
+
+.cs-stories-container .cs-stories-play-indicator svg {
+    fill: rgba(255, 255, 255, 0.75);
+    width: 75px;
+}
+
+.cs-stories-container .cs-stories-play-indicator, .cs-stories-container .cs-stories-loading-indicator {
+    font-size: 50px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.cs-stories-container .cs-stories-loading-indicator {
+    top: 46%;
+    transform: translateY(-46%);
+}
+
+.cs-stories-container .cs-stories-play-indicator {
+    display: none;
+    z-index: 4;
+}
+
+.cs-stories-container .cs-stories-story-entry {
+    padding: 10px;
+    margin: 15px 0;
+    position: relative;
+    background-color: transparent;
+    transition: 0.1s linear background-color;
+}
+
+.cs-stories-container .cs-stories-story-entry:first-child {
+    margin: 0;
+}
+
+.cs-stories-container .cs-stories-story-entry:last-child {
+    margin: 0;
+}
+
+.cs-stories-container .cs-stories-story-entry:hover {
+    background-color: #3a3a3a;
+}
+
+.cs-stories-container .cs-stories-story-entry.cs-stories-selected {
+    background-color: #525252;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-story-data {
+    width: calc(100% - 120px);
+    position: absolute;
+    top: 25px;
+    right: 0px;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-author {
+    font-size: 14px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 5px;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-time {
+    font-size: 11px;
+    color: #b5b5b5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 5px;
+}
+
+.cs-stories-container .cs-stories-wrapper .cs-stories-story-entry .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-time {
+    margin-top: 3px;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-location {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #d3d3d3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 5px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-entry .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-location {
+    margin-top: 5px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-identifier {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #9e9e9e;
+    font-size: 10px;
+}
+
+.cs-stories-container .cs-stories-record-fps, .cs-stories-container .cs-stories-record-filter {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    font-size: 10px;
+    padding: 1px;
+    text-shadow: 1px 1px black;
+    display: none;
+}
+
+.cs-stories-container .cs-stories-record-filter {
+    left: 5px;
+    display: block;
+}
+
+.cs-stories-container .cs-stories-info-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data {
+    position: relative;
+    padding: 3px 10px;
+    box-shadow: 0px 15px 30px 15px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data .cs-stories-story-inner {
+    margin: 10px;
+    position: relative;
+    top: 15px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-author {
+    font-size: 14px;
+    font-weight: bold;
+    color: #eeeeee;
+    position: relative;
+    top: -1px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-time {
+    font-size: 10px;
+    color: #b5b5b5;
+    margin-top: 2px;
+}
+
+.cs-stories-container .cs-stories-info-wrapper .cs-stories-story-data .cs-stories-story-inner .cs-stories-story-location {
+    font-size: 11px;
+    margin-top: 17px;
+    color: #d3d3d3;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-story-thumbnail {
+    height: 100px;
+    width: 100px;
+    border-radius: 250px;
+}
+
+.cs-stories-container .cs-stories-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    height: 15%;
+    width: 100%;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.cs-stories-container .cs-stories-bar-wrapper button {
+    pointer-events: visible;
+}
+
+.cs-stories-container .cs-stories-wrapper {
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    color: white;
+    overflow-y: auto;
+}
+
+.cs-stories-container .cs-stories-home-footer i {
+    position: relative;
+    top: 3px;
+}
+
+.cs-stories-container .cs-stories-progress-ring {
+    top: -10px;
+}
+
+.cs-stories-container .cs-stories-progress-ring svg {
+    pointer-events: visible;
+    zoom: 0.5;
+    position: relative;
+    display: inline;
+    background: rgba(255, 0, 0, 0.25);
+    border-radius: 250px;
+    margin-bottom: -65px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.cs-stories-container [data-action="cs-stories-record-video"] {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.cs-stories-container .cs-stories-progress-ring-circle {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.cs-stories-container .cs-stories-home-wrapper, .cs-stories-container .cs-stories-close-video-wrapper, .cs-stories-container .cs-stories-record-wrapper, .cs-stories-container .cs-stories-upload-wrapper, .cs-stories-container .cs-stories-video-delete-wrapper {
+    text-align: center;
+}
+
+.cs-stories-container button {
+    box-sizing: inherit;
+    margin: 0;
+    -webkit-appearance: button;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    height: 36px;
+    line-height: 36px;
+    padding: 0 14px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    font-size: 14px;
+    outline: 0;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.cs-stories-container button svg {
+    width: 22px;
+    padding: 0;
+    fill: white;
+    margin: 0 auto;
+    display: block;
+    pointer-events: none;
+}
+
+.cs-stories-container button.cs-stories-bg-grey {
+	background-color: #9e9e9e !important
+}
+
+.cs-stories-container button.cs-stories-bg-orange {
+	background-color: #ff9800 !important
+}
+
+.cs-stories-container button.cs-stories-bg-teal {
+	background-color: #009688 !important
+}
+
+.cs-stories-container button.cs-stories-bg-red {
+	background-color: #f44336 !important
+}
+
+.cs-stories-container button.cs-stories-bg-purple {
+	background-color: #9c27b0 !important
+}
+
+.cs-stories-container button.cs-stories-bg-green {
+	background-color: #4caf50 !important
+}
+
+.cs-stories-container .cs-stories-loading-indicator svg.cs-stories-spinner {
+    width: 40px;
+    height: 40px;
+    zoom: 1.5;
+}
+
+.cs-stories-container .cs-stories-loading-indicator svg.cs-stories-spinner circle {
+    fill: transparent;
+    stroke: rgba(255, 255, 255, 0.75);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 125.6;
+    -webkit-transform-origin: 20px 20px 0;
+    -moz-transform-origin: 20px 20px 0;
+    -ms-transform-origin: 20px 20px 0;
+    -o-transform-origin: 20px 20px 0;
+    transform-origin: 20px 20px 0;
+    -webkit-animation: cs-stories-loading-indicator-spinner 2s linear infinite;
+    -moz-animation: cs-stories-loading-indicator-spinner 2s linear infinite;
+    -ms-animation: cs-stories-loading-indicator-spinner 2s linear infinite;
+    -o-animation: cs-stories-loading-indicator-spinner 2s linear infinite;
+    animation: cs-stories-loading-indicator-spinner 2s linear infinite;
+}
+
+.cs-stories-container .cs-stories-wrapper::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+}
+
+.cs-stories-container .cs-stories-wrapper::-webkit-scrollbar-corner {
+    background: #adadad;
+}
+
+.cs-stories-container .cs-stories-wrapper::-webkit-scrollbar-thumb {
+    background: #adadad;
+    border: 1px solid #adadad;
+}
+
+.cs-stories-container .cs-stories-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #868686;
+}
+
+.cs-stories-container .cs-stories-wrapper::-webkit-scrollbar-track {
+    border: 1px solid #272727;
+    background-color: #272727;
+}
+
+.cs-stories-container .cs-stories-wrapper .cs-stories-no-stories {
+    text-align: center;
+}
+
+.cs-stories-container .cs-stories-progress-ring .cs-stories-key-label {
+    top: -13px;
+    bottom: 0;
+}
+
+.cs-stories-container .cs-stories-play-indicator .cs-stories-key-label {
+    bottom: 30px;
+    transform: rotate(-32deg);
+    left: 10px;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label {
+    position: absolute;
+    right: 10px;
+    left: initial;
+    display: none;
+}
+
+.cs-stories-container .cs-stories-story-entry.cs-stories-selected .cs-stories-key-label {
+    display: block;
+    font-size: 0;
+}
+
+.cs-stories-container .cs-stories-story-entry:first-child .cs-stories-key-label.cs-stories-go-up {
+    display: none;
+}
+
+.cs-stories-container .cs-stories-story-entry:last-child .cs-stories-key-label.cs-stories-go-down {
+    display: none;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-up {
+    top: -13px;
+    bottom: initial;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-down {
+    top: initial;
+    bottom: -13px;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-view {
+    top: 38%;
+    bottom: initial;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-view, .cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-up, .cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-down {
+    font-size: 13px;
+    padding: 4px ​12px;
+    z-index: 1;
+}
+
+.cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-view svg, .cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-up svg, .cs-stories-container .cs-stories-story-entry .cs-stories-key-label.cs-stories-go-down svg {
+    position: relative;
+    top: 1px;
+    margin-bottom: -4px;
+    margin-right: 1px;
+}
+
+.cs-stories-container [data-cs-stories-key-label] {
+    display: inline-block;
+    position: relative;
+}
+
+.cs-stories-container .cs-stories-home-wrapper [data-cs-stories-key-label], .cs-stories-container .cs-stories-close-video-wrapper [data-cs-stories-key-label], .cs-stories-container .cs-stories-confirm-delete-video [data-cs-stories-key-label] {
+    margin: 0 15px;
+}
+
+.cs-stories-container .cs-stories-upload-wrapper [data-cs-stories-key-label], .cs-stories-container .cs-stories-video-delete-wrapper [data-cs-stories-key-label] {
+    margin: 0 5px;
+}
+
+.cs-stories-container .cs-stories-key-label {
+    background-color: #333333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 13px;
+    position: relative;
+    bottom: 3px;
+    left: 0;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+.cs-stories-button {
+    text-align: center;
+    transform: scale(1.0);
+    transition: all ease 0.15s;
+}
+
+.cs-stories-button-tooltip {
+    transform: scale(0.0);
+    transition: all ease 0.15s;
+}
+
+.cs-stories-button:hover .cs-stories-button-tooltip {
+    transform: scale(0.9);
+}
+
+.cs-stories-button:hover {
+    transform: scale(1.1);
+}
+
+.cs-stories-button:active {
+    transform: scale(0.8);
+}
+
+.cs-stories-button:active .cs-stories-button-tooltip {
+    transform: scale(0.0);
+}
+
+.cs-stories-container .cs-stories-key-label svg {
+    height: 20px;
+    fill: white;
+}
+
+@keyframes cs-stories-loading-indicator-spinner {
+    0% {
+        transform: rotate(0deg);
+        stroke-dashoffset: 26.4;
+    }
+
+    50% {
+        transform: rotate(720deg);
+        stroke-dashoffset: 125.6;
+    }
+
+    100% {
+        transform: rotate(1080deg);
+        stroke-dashoffset: 26.4;
+    }
+}
