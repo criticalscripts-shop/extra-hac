@@ -135,14 +135,14 @@ window.CS_STORIES.onShowStories = () => {} // What to do when cs-stories is show
 
 window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story's template.
     return `
-        <div class="cs-stories-story-entry" data-uuid="${story.uuid}" data-tempId="${story.tempId}" data-location="${story.meta.location}" data-timestamp="${story.timestamp}" data-author="${story.meta.author}" data-deletable="${story.deletable}">
-            <img src="${story.meta.thumbnail}" alt="${story.uuid}.jpg" class="cs-stories-story-thumbnail" />
+        <div class="cs-stories-story-entry" data-uuid="${story.uuid}" data-tempId="${story.tempId}" data-location="${story.location}" data-timestamp="${story.timestamp}" data-author="${story.author}" data-deletable="${story.deletable}">
+            <img src="${story.thumbnail}" alt="${story.uuid}.jpg" class="cs-stories-story-thumbnail" />
 
             <div class="cs-stories-story-data">
                 <div class="cs-stories-story-inner">
-                    <div class="cs-stories-story-author">${story.meta.author}</div>
+                    <div class="cs-stories-story-author">${story.author}</div>
                     <div class="cs-stories-story-time" data-timestamp="${story.timestamp}">${moment(story.timestamp).fromNow()}</div>
-                    <div class="cs-stories-story-location">${story.meta.location}</div>
+                    <div class="cs-stories-story-location">${story.location}</div>
                 </div>
             </div>
 

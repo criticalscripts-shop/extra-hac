@@ -58,4 +58,6 @@ return function(resource)
         -- A story was deleted (using the internal delete method).
         -- You can use this event to perform a notification for example if you want players to see a story was deleted.
     end)
+
+    -- "cs-stories:notify" is a client event that you can use to show native GTA notifications. It is used by default for cs-stories notifications.
 end
