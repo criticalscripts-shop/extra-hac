@@ -11,11 +11,14 @@ local playerIdentifiersAsControllers = {
     'fivem:000000', -- Example FiveM player identifier.
 }
 
-local esxJobController = 'dj' -- ESX job that can access /hall in every area. Set to nil to disable this feature.
+local esxJobGlobalControllers = { -- ESX jobs that can access /hall is all areas.
+    {'dj', 'boss'}, -- ESX "dj" job with "boss" grade can access /hall in all areas.
+    'dj' -- ESX "dj" job can access /hall in all areas regardless of grade.
+}
 
-local esxPerJobControllers = { -- ESX jobs that can access /hall is specific locations.
+local esxJobAreaControllers = { -- ESX jobs that can access /hall is specific areas.
     ['vanilla_unicorn'] = { -- Remove this to disable it, or add more entries as you wish.
-        {'unicorn', 'boss'} -- ESX "unicorn" job with "boss" grade can access "vanilla_unicorn" area.
+        {'unicorn', 'boss'}, -- ESX "unicorn" job with "boss" grade can access "vanilla_unicorn" area.
         'dj' -- ESX "dj" job can access /hall in vanilla_unicorn regardless of grade.
     }
 }
@@ -45,15 +48,23 @@ function CanAccessControllerInterface(source, area)
         local esxJobGrade = esxPlayer and esxPlayer.job and esxPlayer.job.grade_name
 
         if (esxJobName and esxJobGrade) then
-            if (esxJobName == esxJobNameController) then
-                return true
-            end
-
-            for i = 1, #esxPerJobControllers do
-                local esxAreaEntry = esxPerJobControllers[i]
+            for i = 1, #esxJobGlobalControllers do
+                local esxAreaEntry = esxJobGlobalControllers[i]
 
                 if ((type(esxAreaEntry) == 'string' and esxAreaEntry == esxJobName) or (type(esxAreaEntry) == 'table' and esxAreaEntry[1] == esxJobName and esxAreaEntry[2] == esxJobGrade)) then
                     return true
+                end
+            end
+
+            for k, v in pairs (esxJobAreaControllers) do
+                if (k == area) then
+                    for i = 1, #v do
+                        local esxAreaEntry = v[i]
+        
+                        if ((type(esxAreaEntry) == 'string' and esxAreaEntry == esxJobName) or (type(esxAreaEntry) == 'table' and esxAreaEntry[1] == esxJobName and esxAreaEntry[2] == esxJobGrade)) then
+                            return true
+                        end
+                    end
                 end
             end
         end
