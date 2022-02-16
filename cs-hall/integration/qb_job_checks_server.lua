@@ -13,13 +13,13 @@ local playerIdentifiersAsControllers = {
 
 local qbJobGlobalControllers = { -- QB jobs that can access /hall is all areas.
     {'dj', 2}, -- QB "dj" job with 2 grade level can access /hall in all areas.
-    'dj' -- QB "dj" job can access /hall in all areas regardless of grade.
+    'dj' -- QB "dj" job can access /hall in all areas regardless of grade level.
 }
 
 local qbJobAreaControllers = { -- QB jobs that can access /hall is specific areas.
     ['vanilla_unicorn'] = { -- Remove this to disable it, or add more entries as you wish.
         {'unicorn', 2}, -- QB "unicorn" job with 2 grade level can access "vanilla_unicorn" area.
-        'dj' -- QB "dj" job can access /hall in vanilla_unicorn regardless of grade.
+        'dj' -- QB "dj" job can access /hall in vanilla_unicorn regardless of grade level.
     }
 }
 
