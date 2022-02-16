@@ -14,7 +14,7 @@
         ['scale'] = vector3(0.845, 0.455, 0.0)
     },
 
-    ['monitors'] = [
+    ['monitors'] = {
         {
             ['hash'] = 'prop_huge_display_02',
             ['position'] = vector3(-1708.0703, -906.0299, 10.112692),
@@ -119,9 +119,9 @@
             ['heading'] = 140.35075,
             ['lodDistance'] = 256
         }        
-    ],
+    },
 
-    ['spotlights'] = [
+    ['spotlights'] = {
         {
             ['soundSyncType'] = SOUND_SYNC_TYPE.MID,
             ['hash'] = 'cs_prop_hall_spotlight',
@@ -166,9 +166,9 @@
             ['lodDistance'] = 128,
             ['color'] = {255, 1, 1}
         }
-    ],
+    },
 
-    ['speakers'] = [
+    ['speakers'] = {
         {
             ['hash'] = 'xs_propintarena_speakers_01a',
             ['position'] = vector3(-1708.5303, -905.79474, 16.172209),
@@ -179,5 +179,5 @@
             ['lodDistance'] = 256,
             ['rolloffFactor'] = 1.5
         }
-    ]
+    }
 },

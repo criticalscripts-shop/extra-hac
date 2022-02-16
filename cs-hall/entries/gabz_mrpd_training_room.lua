@@ -10,23 +10,23 @@
         ['polygons'] = {
             ['applyLowPassFilterOutside'] = true,
 
-            ['entries'] = [
+            ['entries'] = {
                 {
                     ['height'] = {
                         ['min'] = 34.0,
                         ['max'] = 37.0
                     },
 
-                    ['points'] = [
+                    ['points'] = {
                         vector2(439.57, -990.6),
                         vector2(448.61, -990.52),
                         vector2(450.29, -988.71),
                         vector2(450.06, -982.84),
                         vector2(448.46, -981.31),
                         vector2(439.62, -981.36)
-                    ]
+                    }
                 }
-            ]
+            }
         }
     },
 
@@ -37,7 +37,7 @@
         ['scale'] = vector3(0.102, 0.075, 0.0)
     },
 
-    ['speakers'] = [
+    ['speakers'] = {
         {
             ['hash'] = 'v_res_fh_speaker',
             ['visible'] = false,
@@ -57,5 +57,5 @@
             ['rolloffFactor'] = 2,
             ['lowPassGainReductionPercent'] = 75
         }
-    ]
+    }
 },

@@ -12,7 +12,7 @@
         ['xs_prop_arena_bigscreen_01'] = 'script_rt_bigscreen_01'
     },
 
-    ['speakers'] = [
+    ['speakers'] = {
         {
             ['hash'] = 'xs_propintarena_speakers_01a',
             ['visible'] = false,
@@ -23,5 +23,6 @@
             ['refDistance'] = 128.0,
             ['rolloffFactor'] = 1.25
         }
-    ]
+    
+    }
 },

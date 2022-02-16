@@ -12,7 +12,7 @@
         ['big_screens'] = 'script_rt_big_disp'
     },
 
-    ['monitors'] = [
+    ['monitors'] = {
         {
             ['hash'] = 'prop_huge_display_01',
             ['position'] = vector3(-1707.6466, -905.0017, 9.855809),
@@ -25,9 +25,9 @@
             ['position'] = vector3(-1708.3318, -905.8888, 6.707863),
             ['heading'] = 139.5905
         }
-    ],
+    },
 
-    ['spotlights'] = [
+    ['spotlights'] = {
         {
             ['soundSyncType'] = SOUND_SYNC_TYPE.MID,
             ['hash'] = 'cs_prop_hall_spotlight',
@@ -72,9 +72,9 @@
             ['lodDistance'] = 256,
             ['color'] = {255, 1, 1}
         }
-    ],
+    },
 
-    ['speakers'] = [
+    ['speakers'] = {
         {
             ['hash'] = 'ba_prop_battle_club_speaker_large',
             ['visible'] = true,
@@ -96,5 +96,5 @@
             ['lodDistance'] = 256,
             ['rolloffFactor'] = 1.5
         }
-    ]
+    }
 },

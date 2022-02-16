@@ -14,7 +14,7 @@
         ['scale'] = vector3(0.969999969, 0.484999985, -0.1)
     },
 
-    ['speakers'] = [
+    ['speakers'] = {
         {
             ['hash'] = 'xs_propintarena_speakers_01a',
             ['visible'] = false,
@@ -24,5 +24,5 @@
             ['refDistance'] = 32.0,
             ['rolloffFactor'] = 1.5
         }
-    ]
+    }
 },
