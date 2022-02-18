@@ -110,7 +110,7 @@ window.CS_STORIES.hookInterface = () => {
         </div>
     `)
 
-    // If you want to edit the app's position, name or color you may do so here.
+    // If you want to edit the app's position, name, icon or color you may do so here.
 
     const _CSS_button = jQuery(`
         <div class="app" style="background: #ff015f">
