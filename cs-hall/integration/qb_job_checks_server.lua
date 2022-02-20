@@ -81,8 +81,7 @@ function CanAccessControllerInterface(source, area)
     return false
 end
 
-RegisterNetEvent('cs-hall:integration:toggleControllerInterface')
-AddEventHandler('cs-hall:integration:toggleControllerInterface', function(area)
+RegisterNetEvent('cs-hall:integration:toggleControllerInterface', function(area)
     local source = source
 
     if (CanAccessControllerInterface(source, area)) then
@@ -96,8 +95,7 @@ end)
 
 local activeControllerInterfaceObjects = {}
 
-RegisterNetEvent('cs-hall:integration:onControllerInterfaceObjectCreated')
-AddEventHandler('cs-hall:integration:onControllerInterfaceObjectCreated', function(objectNetId)
+RegisterNetEvent('cs-hall:integration:onControllerInterfaceObjectCreated', function(objectNetId)
     local source = source
     activeControllerInterfaceObjects[source] = objectNetId
 end)

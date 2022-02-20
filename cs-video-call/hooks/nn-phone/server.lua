@@ -31,9 +31,6 @@ return function(resource)
         end
     end
 
-    RegisterServerEvent('nn-phone:server:CallContact')
-    RegisterServerEvent('nn-phone:server:SetCallState')
-
-    AddEventHandler('nn-phone:server:CallContact', ParseCallContact)
-    AddEventHandler('nn-phone:server:SetCallState', ParseSetCallState)
+    RegisterNetEvent('nn-phone:server:CallContact', ParseCallContact)
+    RegisterNetEvent('nn-phone:server:SetCallState', ParseSetCallState)
 end
