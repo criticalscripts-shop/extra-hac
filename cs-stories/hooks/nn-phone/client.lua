@@ -52,7 +52,6 @@ return function(resource)
     AddEventHandler('cs-stories:onVideoOff', function()
         -- Triggered when the player has closed Stories' camera.
         originalSetNuiFocusKeepInput(lastNuiFocusKeepInputState)
-        PhoneAnimation(true)
     end)
 
     AddEventHandler('cs-stories:onStoryAdded', function(data)
@@ -67,25 +66,25 @@ return function(resource)
 
     AddEventHandler('cs-stories:onStoryUpload', function(data)
         -- A story was uploaded by this player.
-        TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~g~Your story has been uploaded!')
+
+        TriggerEvent('NNCore:Notify', 'Phone Stories: Your story has been uploaded!')
     end)
 
     AddEventHandler('cs-stories:onStoryUploadFailed', function(data)
         -- A story upload by this player failed.
-        TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~r~Your story upload failed, please try again!')
+
+        TriggerEvent('NNCore:Notify', 'Phone Stories: Your story upload failed, please try again!', 'error')
     end)
 
     AddEventHandler('cs-stories:onStoryDeleteOutcome', function(tempId, outcome)
         -- A story was deleted by this player (using the application interface).
 
         if (outcome == 'success') then
-            TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~g~You deleted story #' .. tempId .. '!')
-        elseif (outcome == 'failure') then
-            TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~r~Story #' .. tempId .. ' could not be deleted!')
+            TriggerEvent('NNCore:Notify', 'Phone Stories: You deleted story #' .. tempId .. '!')
         elseif (outcome == 'no_permissions') then
-            TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~r~You don\'t have permissions to delete story #' .. tempId .. '!')
+            TriggerEvent('NNCore:Notify', 'Phone Stories: You don\'t have permissions to delete story #' .. tempId .. '!', 'error')
         elseif (outcome == 'no_story') then
-            TriggerEvent('cs-stories:notify', '~h~Phone Stories~n~~h~~r~Story #' .. tempId .. ' could not be found!')
+            TriggerEvent('NNCore:Notify', 'Phone Stories: Your story upload failed, please try again!', 'error')
         end
     end)
 
@@ -107,8 +106,8 @@ return function(resource)
                 })
             end
 
-            if (PhoneData and phoneOpen ~= PhoneData.Open) then
-                phoneOpen = PhoneData and PhoneData.Open
+            if ((PhoneData and phoneOpen ~= PhoneData.isOpen) or (Phoneopen and phoneOpen ~= Phoneopen)) then
+                phoneOpen = (PhoneData and PhoneData.isOpen) or Phoneopen or false
 
                 if (not phoneOpen) then
                     CS_STORIES.Close() -- Calling this when your phone closes, to make sure cs-stories also closes with it. If you do not want this behavior just comment this line.
