@@ -153,8 +153,6 @@ window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story
     `
 }
 
-window.CS_STORIES.setUsingMouse(window.localStorage.gc_mouse === 'true') // Informing cs-stories that the phone is using NUI mouse.
-
 jQuery('body').on('DOMSubtreeModified', event => {
     if (jQuery('.screen .app-drawer').length > 0)
         window.CS_STORIES.hookDocument()

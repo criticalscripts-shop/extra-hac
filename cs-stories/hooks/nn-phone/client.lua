@@ -20,11 +20,6 @@ return function(resource)
         end
     end
 
-    RegisterNUICallback('cs-stories:usingMouse', function(data, callback)
-        CS_STORIES.SetKeyLabels(not data.state) -- Set key labels depending on user preference of using mouse or not while browsing the phone.
-        callback(true)
-    end)
-
     AddEventHandler('cs-stories:onVideoOn', function()
         -- Triggered when the player has opened Stories' camera.
 

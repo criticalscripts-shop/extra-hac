@@ -202,5 +202,3 @@ if (originalSetupApps)
     }
 else
     window.CS_STORIES.hookDocument()
-
-window.CS_STORIES.setUsingMouse(true) // Informing cs-stories that the phone is using NUI mouse.
