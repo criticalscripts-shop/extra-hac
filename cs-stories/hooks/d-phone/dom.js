@@ -1,9 +1,8 @@
 const _CSS_notchOffset = '16.5%' // If your phone is using a skin with a notch you can specify the top distance it takes here.
 const _CSS_bottomToTop = '5px' // The distance from bottom to top to animate the bottom elements to.
 const _CSS_topToBottom = '15px' // The distance from top to bottom to animate the top elements to.
-const _CSS_QB_NAMESPACE = typeof(QB) === 'object' && QB.Phone ? QB : null
 
-if ((!_CSS_QB_NAMESPACE) || typeof(IsAppJobBlocked) !== 'function')
+if (typeof(sendData) !== 'function')
     throw new Error('[criticalscripts.shop] cs-stories could not be hooked to your phone. Make sure you are using the correct hook.')
 
 jQuery('body').on('click', '.phone-go-home', () => window.CS_STORIES.onHome()) // Calling this if the phone directs us to go back to the home view.
@@ -113,23 +112,14 @@ window.CS_STORIES.hookInterface = () => {
         </div>
     `)
 
-    let _CSS_button = null
- 
-    const _CSS_hookEntry = jQuery('.cs-stories-dummy-icon-do-not-change-this-value')
+    // If you want to edit the app's position, name, icon or color you may do so here.
+    const _CSS_button = jQuery(`
+        <div class="phone-application" data-toggle="tooltip" data-placement="bottom" style="background: #ff015f" title="Stories">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 65%; fill: white; margin-top: 15%"><path d="M 12 2 A 2 2 0 0 0 10 4 A 2 2 0 0 0 12 6 A 2 2 0 0 0 14 4 A 2 2 0 0 0 12 2 z M 12 7 C 9.269 7 7 7.9087969 7 9.2167969 L 7 10 L 6 10 C 4.9069372 10 4 10.906937 4 12 L 4 20 C 4 21.093063 4.9069372 22 6 22 L 18 22 C 19.093063 22 20 21.093063 20 20 L 20 12 C 20 10.906937 19.093063 10 18 10 L 17 10 L 17 9.2167969 C 17 7.9087969 14.731 7 12 7 z M 6 12 L 18 12 L 18 20 L 15.962891 20 C 15.77054 18.812134 14.05927 18 12 18 C 9.9407301 18 8.2294596 18.812134 8.0371094 20 L 6 20 L 6 12 z M 12 13 A 2 2 0 0 0 10 15 A 2 2 0 0 0 12 17 A 2 2 0 0 0 14 15 A 2 2 0 0 0 12 13 z"></path></svg>
+        </div>
+    `)
 
-    if (_CSS_hookEntry.length > 0)
-        _CSS_button = _CSS_hookEntry.parent()
-    else {
-        // If you want to edit the app's position, name, icon or color you may do so here.
-        _CSS_button = jQuery(`
-            <div class="phone-application" data-toggle="tooltip" data-placement="bottom" style="background: #ff015f" title="Stories">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 65%; fill: white; margin-top: 15%"><path d="M 12 2 A 2 2 0 0 0 10 4 A 2 2 0 0 0 12 6 A 2 2 0 0 0 14 4 A 2 2 0 0 0 12 2 z M 12 7 C 9.269 7 7 7.9087969 7 9.2167969 L 7 10 L 6 10 C 4.9069372 10 4 10.906937 4 12 L 4 20 C 4 21.093063 4.9069372 22 6 22 L 18 22 C 19.093063 22 20 21.093063 20 20 L 20 12 C 20 10.906937 19.093063 10 18 10 L 17 10 L 17 9.2167969 C 17 7.9087969 14.731 7 12 7 z M 6 12 L 18 12 L 18 20 L 15.962891 20 C 15.77054 18.812134 14.05927 18 12 18 C 9.9407301 18 8.2294596 18.812134 8.0371094 20 L 6 20 L 6 12 z M 12 13 A 2 2 0 0 0 10 15 A 2 2 0 0 0 12 17 A 2 2 0 0 0 14 15 A 2 2 0 0 0 12 13 z"></path></svg>
-            </div>
-        `)
-
-        jQuery('.phone-home-applications').append(_CSS_button)
-    }
-
+    jQuery('.phone-home-applications').append(_CSS_button)
     jQuery('.phone-container').prepend(_CSS_container)
 
     return {
@@ -141,15 +131,8 @@ window.CS_STORIES.hookInterface = () => {
     }
 }
 
-window.CS_STORIES.onShowStories = () => { // What to do when cs-stories is shown.
-    if (window[_CSS_QB_NAMESPACE] && window[_CSS_QB_NAMESPACE].Phone && window[_CSS_QB_NAMESPACE].Phone.Data)
-        window[_CSS_QB_NAMESPACE].Phone.Data.currentApplication = 'cs-stories'
-}
-
-window.CS_STORIES.onHideStories = () => {
-    if (window[_CSS_QB_NAMESPACE] && window[_CSS_QB_NAMESPACE].Phone && window[_CSS_QB_NAMESPACE].Phone.Data)
-        window[_CSS_QB_NAMESPACE].Phone.Data.currentApplication = null
-} // What to do when cs-stories is hidden.
+window.CS_STORIES.onShowStories = () => {} // What to do when cs-stories is shown.
+window.CS_STORIES.onHideStories = () => {} // What to do when cs-stories is hidden.
 
 window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story's template.
     return `
@@ -171,34 +154,4 @@ window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story
     `
 }
 
-const originalSetupApps = window[_CSS_QB_NAMESPACE] && window[_CSS_QB_NAMESPACE].Phone && window[_CSS_QB_NAMESPACE].Phone.Functions && window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications ? window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications : null
-
-if (originalSetupApps)
-    window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications = data => { // If you want to edit the app's position, name or color you may do so here.
-        let maxSlot = 0
-
-        for (const key in data.applications) {
-            const app = data.applications[key]
-
-            if (app.slot > maxSlot && ((!app.job) || app.job === window[_CSS_QB_NAMESPACE].Phone.Data.PlayerJob.name) && (!IsAppJobBlocked(app.blockedjobs, window[_CSS_QB_NAMESPACE].Phone.Data.PlayerJob.name)))
-                maxSlot = app.slot
-        }
-
-        data.applications['cs-stories'] = {
-            Alerts: 0,
-            job: false,
-            app: 'cs-stories',
-            color: '#ff015f',
-            blockedjobs: [],
-            icon: 'cs-stories-dummy-icon-do-not-change-this-value fas fa-camera-retro',
-            slot: maxSlot + 1,
-            tooltipPos: 'bottom',
-            tooltipText: 'Stories'
-        }
-
-        originalSetupApps(data)
-
-        window.CS_STORIES.hookDocument()
-    }
-else
-    window.CS_STORIES.hookDocument()
+window.CS_STORIES.hookDocument()

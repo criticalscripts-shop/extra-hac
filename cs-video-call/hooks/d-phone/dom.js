@@ -1,6 +1,4 @@
-const _CSVC_QB_NAMESPACE = typeof(QB) === 'object' && QB.Phone ? QB : null
-
-if (!_CSVC_QB_NAMESPACE)
+if (typeof(sendData) !== 'function')
     throw new Error('[criticalscripts.shop] cs-video-call could not be hooked to your phone. Make sure you are using the correct hook.')
 
 window.CS_VIDEO_CALL.hookInterface = () => {
