@@ -123,13 +123,19 @@
 
 .cs-video-call-incoming-call-container .phone-call-ongoing-caller, .cs-video-call-incoming-call-container .phone-call-ongoing-title, .cs-video-call-incoming-call-container .phone-call-ongoing-picture, .cs-video-call-incoming-call-container .phone-call-ongoing-time {
     transition: all 1s ease;
+    left: 0;
+    pointer-events: none;
 }
 
 .cs-video-call-incoming-call-container .phone-call-ongoing-caller, .cs-video-call-incoming-call-container .phone-call-ongoing-title, .cs-video-call-incoming-call-container .phone-call-ongoing-time {
     width: 100%;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-video-active .phone-call-ongoing-caller, .cs-video-call-incoming-call-container.cs-video-call-video-active .phone-call-ongoing-title, .cs-video-call-incoming-call-container.cs-video-call-video-active .phone-call-ongoing-time {
+.cs-video-call-incoming-call-container.cs-video-call-video-active:not(.cs-video-call-swapped) .phone-call-ongoing-caller, .cs-video-call-incoming-call-container.cs-video-call-video-active:not(.cs-video-call-swapped) .phone-call-ongoing-title, .cs-video-call-incoming-call-container.cs-video-call-video-active:not(.cs-video-call-swapped) .phone-call-ongoing-time {
+    width: 68%;
+}
+
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active.cs-video-call-swapped .phone-call-ongoing-caller, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active.cs-video-call-swapped .phone-call-ongoing-title, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active.cs-video-call-swapped .phone-call-ongoing-time {
     width: 68%;
 }
 
@@ -141,19 +147,19 @@
     margin-right: 45%;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone-call-ongoing-picture {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone-call-ongoing-picture {
     display: none;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone-call-ongoing-title {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone-call-ongoing-title {
     top: 9%;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone-call-ongoing-caller {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone-call-ongoing-caller {
     top: 10%;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone-call-ongoing-time {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone-call-ongoing-time {
     top: 11%;
 }
 

@@ -106,15 +106,15 @@
     margin-right: 0;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active #cs-video-call-remote-video, .cs-video-call-incoming-call-container.cs-video-call-swapped #cs-video-call-remote-video {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active #cs-video-call-remote-video, .cs-video-call-incoming-call-container.cs-video-call-swapped #cs-video-call-remote-video {
     background: black;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app .backblur, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .backblur, .cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app .num, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .num, .cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app .contactName, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .contactName, .cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app .time, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .time, .cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app .time-display, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .time-display {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app .backblur, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .backblur, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app .num, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .num, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app .contactName, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .contactName, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app .time, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .time, .cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app .time-display, .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app .time-display {
     display: none;
 }
 
-.cs-video-call-incoming-call-container.cs-video-call-remote-cs-video-call-video-active .phone_app :nth-child(5), .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app :nth-child(5) {
+.cs-video-call-incoming-call-container.cs-video-call-remote-video-active .phone_app :nth-child(5), .cs-video-call-incoming-call-container.cs-video-call-swapped .phone_app :nth-child(5) {
     display: none;
 }
 
