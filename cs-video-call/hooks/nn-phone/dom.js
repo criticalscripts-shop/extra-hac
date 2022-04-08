@@ -1,4 +1,4 @@
-const _CSVC_QB_NAMESPACE = typeof(NN) === 'object' && NN.Phone ? NN : null
+const _CSVC_QB_NAMESPACE = typeof(NN) === 'object' && NN.Phone ? 'NN' : null
 
 if (!_CSVC_QB_NAMESPACE)
     throw new Error('[criticalscripts.shop] cs-video-call could not be hooked to your phone. Make sure you are using the correct hook.')

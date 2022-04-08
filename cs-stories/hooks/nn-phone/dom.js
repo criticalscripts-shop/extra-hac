@@ -1,7 +1,7 @@
 const _CSS_notchOffset = '16.5%' // If your phone is using a skin with a notch you can specify the top distance it takes here.
 const _CSS_bottomToTop = '5px' // The distance from bottom to top to animate the bottom elements to.
 const _CSS_topToBottom = '15px' // The distance from top to bottom to animate the top elements to.
-const _CSS_QB_NAMESPACE = typeof(NN) === 'object' && NN.Phone ? NN : null
+const _CSS_QB_NAMESPACE = typeof(NN) === 'object' && NN.Phone ? 'NN' : null
 
 if ((!_CSS_QB_NAMESPACE) || typeof(IsAppJobBlocked) !== 'function')
     throw new Error('[criticalscripts.shop] cs-stories could not be hooked to your phone. Make sure you are using the correct hook.')
@@ -173,7 +173,7 @@ window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story
 
 const originalSetupApps = window[_CSS_QB_NAMESPACE] && window[_CSS_QB_NAMESPACE].Phone && window[_CSS_QB_NAMESPACE].Phone.Functions && window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications ? window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications : null
 
-if (originalSetupApps)
+if (originalSetupApps) {
     window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications = data => { // If you want to edit the app's position, name or color you may do so here.
         let maxSlot = 0
 
@@ -200,5 +200,10 @@ if (originalSetupApps)
 
         window.CS_STORIES.hookDocument()
     }
-else
+
+    if (Object.values(window[_CSS_QB_NAMESPACE].Phone.Data.Applications).length !== 0)
+        window[_CSS_QB_NAMESPACE].Phone.Functions.SetupApplications({
+            applications: window[_CSS_QB_NAMESPACE].Phone.Data.Applications
+        })
+} else
     window.CS_STORIES.hookDocument()
