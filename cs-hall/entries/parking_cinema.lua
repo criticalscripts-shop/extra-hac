@@ -1,3 +1,5 @@
+-- This entry does not require an extra map.
+
 ['parking_cinema'] = {
     ['enabled'] = true,
 

@@ -1,3 +1,5 @@
+-- The map for this entry can be found at: https://forum.cfx.re/t/release-arena-war-dlc-arena-ipl-location/234585
+
 ['arena_wars'] = {
     ['enabled'] = true,
 

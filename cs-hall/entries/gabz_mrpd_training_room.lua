@@ -1,3 +1,5 @@
+-- The map for this entry can be found at: https://fivem.gabzv.com/package/4724502
+
 ['gabz_mrpd_training_room'] = {
     ['enabled'] = true,
 

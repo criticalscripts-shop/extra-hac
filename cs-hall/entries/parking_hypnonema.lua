@@ -1,3 +1,5 @@
+-- The map for this entry can be found at: https://github.com/thiago-dev/fivem-hypnonema/tree/master/example_map
+
 ['parking_hypnonema'] = {
     ['enabled'] = true,
 
