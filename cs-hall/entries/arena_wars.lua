@@ -25,6 +25,5 @@
             ['refDistance'] = 128.0,
             ['rolloffFactor'] = 1.25
         }
-    
     }
 },
