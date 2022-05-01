@@ -16,7 +16,7 @@ local qbJobGlobalControllers = { -- QB jobs that can access /ves is all vehicle 
     'dj' -- QB "dj" job can access /ves in all vehicle plates regardless of grade level.
 }
 
-local qbJobAreaControllers = { -- QB jobs that can access /ves is specific vehicle plates.
+local qbJobPlateControllers = { -- QB jobs that can access /ves is specific vehicle plates.
     ['PLATE1234'] = { -- Remove this to disable it, or add more entries as you wish.
         {'unicorn', 2}, -- QB "unicorn" job with 2 grade level can access "PLATE1234" vehicle plate.
         'dj' -- QB "dj" job can access /ves in "PLATE1234" vehicle plate regardless of grade level.
@@ -57,19 +57,19 @@ function CanAccessControllerInterface(source, plate)
 
         if (qbJobName and qbJobGrade) then
             for i = 1, #qbJobGlobalControllers do
-                local qbAreaEntry = qbJobGlobalControllers[i]
+                local qbPlateEntry = qbJobGlobalControllers[i]
 
-                if ((type(qbAreaEntry) == 'string' and qbAreaEntry == qbJobName) or (type(qbAreaEntry) == 'table' and qbAreaEntry[1] == qbJobName and qbAreaEntry[2] == qbJobGrade)) then
+                if ((type(qbPlateEntry) == 'string' and qbPlateEntry == qbJobName) or (type(qbPlateEntry) == 'table' and qbPlateEntry[1] == qbJobName and qbPlateEntry[2] == qbJobGrade)) then
                     return true
                 end
             end
 
-            for k, v in pairs (qbJobAreaControllers) do
-                if (k == area) then
+            for k, v in pairs (qbJobPlateControllers) do
+                if (k == plate) then
                     for i = 1, #v do
-                        local qbAreaEntry = v[i]
+                        local qbPlateEntry = v[i]
         
-                        if ((type(qbAreaEntry) == 'string' and qbAreaEntry == qbJobName) or (type(qbAreaEntry) == 'table' and qbAreaEntry[1] == qbJobName and qbAreaEntry[2] == qbJobGrade)) then
+                        if ((type(qbPlateEntry) == 'string' and qbPlateEntry == qbJobName) or (type(qbPlateEntry) == 'table' and qbPlateEntry[1] == qbJobName and qbPlateEntry[2] == qbJobGrade)) then
                             return true
                         end
                     end

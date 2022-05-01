@@ -16,7 +16,7 @@ local esxJobGlobalControllers = { -- ESX jobs that can access /ves is all vehicl
     'dj' -- ESX "dj" job can access /ves in all vehicle plates regardless of grade.
 }
 
-local esxJobAreaControllers = { -- ESX jobs that can access /ves is specific vehicle plates.
+local esxJobPlateControllers = { -- ESX jobs that can access /ves is specific vehicle plates.
     ['PLATE1234'] = { -- Remove this to disable it, or add more entries as you wish.
         {'unicorn', 'boss'}, -- ESX "unicorn" job with "boss" grade can access "PLATE1234" vehicle plate.
         'dj' -- ESX "dj" job can access /ves in "PLATE1234" vehicle plate regardless of grade.
@@ -49,19 +49,19 @@ function CanAccessControllerInterface(source, plate)
 
         if (esxJobName and esxJobGrade) then
             for i = 1, #esxJobGlobalControllers do
-                local esxAreaEntry = esxJobGlobalControllers[i]
+                local esxPlateEntry = esxJobGlobalControllers[i]
 
-                if ((type(esxAreaEntry) == 'string' and esxAreaEntry == esxJobName) or (type(esxAreaEntry) == 'table' and esxAreaEntry[1] == esxJobName and esxAreaEntry[2] == esxJobGrade)) then
+                if ((type(esxPlateEntry) == 'string' and esxPlateEntry == esxJobName) or (type(esxPlateEntry) == 'table' and esxPlateEntry[1] == esxJobName and esxPlateEntry[2] == esxJobGrade)) then
                     return true
                 end
             end
 
-            for k, v in pairs (esxJobAreaControllers) do
-                if (k == area) then
+            for k, v in pairs (esxJobPlateControllers) do
+                if (k == plate) then
                     for i = 1, #v do
-                        local esxAreaEntry = v[i]
+                        local esxPlateEntry = v[i]
         
-                        if ((type(esxAreaEntry) == 'string' and esxAreaEntry == esxJobName) or (type(esxAreaEntry) == 'table' and esxAreaEntry[1] == esxJobName and esxAreaEntry[2] == esxJobGrade)) then
+                        if ((type(esxPlateEntry) == 'string' and esxPlateEntry == esxJobName) or (type(esxPlateEntry) == 'table' and esxPlateEntry[1] == esxJobName and esxPlateEntry[2] == esxJobGrade)) then
                             return true
                         end
                     end
