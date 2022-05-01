@@ -19,7 +19,7 @@ local esxJobGlobalControllers = { -- ESX jobs that can access /hall is all areas
 local esxJobAreaControllers = { -- ESX jobs that can access /hall is specific areas.
     ['vanilla_unicorn'] = { -- Remove this to disable it, or add more entries as you wish.
         {'unicorn', 'boss'}, -- ESX "unicorn" job with "boss" grade can access "vanilla_unicorn" area.
-        'dj' -- ESX "dj" job can access /hall in vanilla_unicorn regardless of grade.
+        'dj' -- ESX "dj" job can access /hall in "vanilla_unicorn" regardless of grade.
     }
 }
 
