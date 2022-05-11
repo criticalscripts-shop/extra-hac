@@ -16,7 +16,7 @@
     ['bass'] = nil,
 
     ['area'] = {
-        ['range'] = 36.0,
+        ['range'] = 32.0,
         ['center'] = vector3(444.93, -985.62, 34.97),
         ['height'] = nil,
 
@@ -71,8 +71,8 @@
             ['lodDistance'] = nil,
             ['soundOffset'] = nil,
             ['distanceOffset'] = nil,
-            ['maxDistance'] = 28.0,
-            ['refDistance'] = 24.0,
+            ['maxDistance'] = 8.0,
+            ['refDistance'] = 4.0,
             ['rolloffFactor'] = 2,
             ['coneInnerAngle'] = 90,
             ['coneOuterAngle'] = 180,
@@ -91,8 +91,8 @@
             ['lodDistance'] = nil,
             ['soundOffset'] = nil,
             ['distanceOffset'] = nil,
-            ['maxDistance'] = 28.0,
-            ['refDistance'] = 24.0,
+            ['maxDistance'] = 8.0,
+            ['refDistance'] = 4.0,
             ['rolloffFactor'] = 2,
             ['coneInnerAngle'] = 90,
             ['coneOuterAngle'] = 180,

@@ -222,7 +222,7 @@
             ['lodDistance'] = nil,
             ['soundOffset'] = nil,
             ['distanceOffset'] = vector3(0.75, -0.66, 0),
-            ['maxDistance'] = 16.0,
+            ['maxDistance'] = 32.0,
             ['refDistance'] = 16.0,
             ['rolloffFactor'] = 1.25,
             ['coneInnerAngle'] = 90,

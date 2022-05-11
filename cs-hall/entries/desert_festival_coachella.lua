@@ -158,7 +158,7 @@
             ['lodDistance'] = nil,
             ['soundOffset'] = nil,
             ['distanceOffset'] = nil,
-            ['maxDistance'] = 16.0,
+            ['maxDistance'] = 32.0,
             ['refDistance'] = 16.0,
             ['rolloffFactor'] = 1.25,
             ['coneInnerAngle'] = 90,
