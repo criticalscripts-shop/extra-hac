@@ -1,5 +1,9 @@
 window.CS_VIDEO_CALL.hookInterface = () => {
-    jQuery('.screen').prepend(`
+    const screen = jQuery('.screen').length > 0 ? jQuery('.screen') : jQuery('.case').next()
+    const toastifyVersion = jQuery('.Toastify__toast-body .actions').length > 0
+    const alert = toastifyVersion ? jQuery('.Toastify__toast-body .actions') : jQuery('.grid.gap-1 .flex.gap-1')
+
+    screen.prepend(`
         <canvas id="cs-video-call-video-clone"></canvas>
         <video id="cs-video-call-virtual-video"></video>
 
@@ -24,13 +28,13 @@ window.CS_VIDEO_CALL.hookInterface = () => {
         <video id="cs-video-call-remote-video"></video>
     `)
 
-    jQuery('.Toastify__toast-body .actions').prepend('<span style="position: absolute;right: 13%;top: 45%;z-index: 3;zoom: 0.3"><span data-action="cs-video-call-swap-transmission" style="display: none;"><svg enable-background="new 0 0 488.3 488.3" version="1.1" viewBox="0 0 488.3 488.3" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m488.3 142.5v203.1c0 15.7-17 25.5-30.6 17.7l-84.6-48.8v13.9c0 41.8-33.9 75.7-75.7 75.7h-221.7c-41.8 0-75.7-33.9-75.7-75.7v-168.5c0-41.8 33.9-75.7 75.7-75.7h221.8c41.8 0 75.7 33.9 75.7 75.7v13.9l84.6-48.8c13.5-8 30.5 1.9 30.5 17.5z" /></svg></span></span>')
+    alert.prepend(`<span style="position: absolute;right: 13%;top: ${toastifyVersion ? '45' : '5'}%;z-index: 3;zoom: 0.3"><span data-action="cs-video-call-swap-transmission" style="display: none;"><svg enable-background="new 0 0 488.3 488.3" version="1.1" viewBox="0 0 488.3 488.3" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m488.3 142.5v203.1c0 15.7-17 25.5-30.6 17.7l-84.6-48.8v13.9c0 41.8-33.9 75.7-75.7 75.7h-221.7c-41.8 0-75.7-33.9-75.7-75.7v-168.5c0-41.8 33.9-75.7 75.7-75.7h221.8c41.8 0 75.7 33.9 75.7 75.7v13.9l84.6-48.8c13.5-8 30.5 1.9 30.5 17.5z" /></svg></span></span>`)
 
-    return jQuery('.screen')
+    return screen
 }
 
 jQuery('body').on('DOMSubtreeModified', event => {
-    if (jQuery('.Toastify__toast-body .decline').length > 0)
+    if (jQuery('.Toastify__toast-body .decline').length > 0 || jQuery('.grid.gap-1 .flex.gap-1 .w-6.h-6.bg-red-500').length > 0)
         window.CS_VIDEO_CALL.hookDocument()
     else
         window.CS_VIDEO_CALL.unhookDocument()

@@ -19,6 +19,18 @@ return function(resource)
         end
     end
 
+    RegisterNetEvent('phone:call', function(data)
+        TriggerServerEvent('cs-video-call:custom:setCallId', data.CallID, data.incoming)
+    end)
+
+    RegisterNetEvent('phone:answerCall', function(callId)
+        TriggerServerEvent('cs-video-call:custom:callAnswered', callId)
+    end)
+
+    RegisterNetEvent('phone:endCall', function(callId)
+        TriggerServerEvent('cs-video-call:custom:clearCallId', callId)
+    end)
+
     RegisterNetEvent('cs-video-call:custom:setCallee', function(target)
         CS_VIDEO_CALL.SetCallState(true)
         CS_VIDEO_CALL.SetCallee(target)
