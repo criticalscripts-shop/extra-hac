@@ -112,16 +112,25 @@ window.CS_STORIES.hookInterface = () => {
 
     // If you want to edit the app's position, name, icon or color you may do so here.
 
-    const _CSS_button = jQuery(`
-        <div class="app" style="background: #ff015f">
+    const screen = jQuery('.screen').length > 0 ? jQuery('.screen') : jQuery('.case').next()
+    const isDrawer = jQuery('.app-drawer').length > 0
+    const drawer = isDrawer ? jQuery('.app-drawer') : jQuery('.grid.grid-cols-4.w-full.h-full')
+
+    const _CSS_button = isDrawer ? jQuery(`
+        <div class="app cs-stories-button-zoom-on-hover" style="background: #ff015f">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 65%; fill: white; margin-top: 15%"><path d="M 12 2 A 2 2 0 0 0 10 4 A 2 2 0 0 0 12 6 A 2 2 0 0 0 14 4 A 2 2 0 0 0 12 2 z M 12 7 C 9.269 7 7 7.9087969 7 9.2167969 L 7 10 L 6 10 C 4.9069372 10 4 10.906937 4 12 L 4 20 C 4 21.093063 4.9069372 22 6 22 L 18 22 C 19.093063 22 20 21.093063 20 20 L 20 12 C 20 10.906937 19.093063 10 18 10 L 17 10 L 17 9.2167969 C 17 7.9087969 14.731 7 12 7 z M 6 12 L 18 12 L 18 20 L 15.962891 20 C 15.77054 18.812134 14.05927 18 12 18 C 9.9407301 18 8.2294596 18.812134 8.0371094 20 L 6 20 L 6 12 z M 12 13 A 2 2 0 0 0 10 15 A 2 2 0 0 0 12 17 A 2 2 0 0 0 14 15 A 2 2 0 0 0 12 13 z"></path></svg>
             <div class="cs-stories-button-tooltip" style="pointer-events: none; z-index: 9999; visibility: visible; position: absolute; inset: 0px auto auto 0px; margin: 0px; top: 65px;left: -5px;"><div class="tippy-box" data-state="visible" tabindex="-1" data-animation="scale" role="tooltip" data-placement="bottom" style="max-width: 350px; transition-duration: 150ms;"><div class="tippy-content" data-state="visible" style="transition-duration: 150ms;"><div>Stories</div></div><div class="tippy-arrow" style="position: absolute; left: -7px; transform: translate(32px, 0px);"></div></div></div>
         </div>
+    `) : jQuery(`
+        <div class="w-[60px] h-[60px] cursor-pointer bg-cover relative rounded-lg p-[0.3rem]" style="background: #ff015f">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: white"><path d="M 12 2 A 2 2 0 0 0 10 4 A 2 2 0 0 0 12 6 A 2 2 0 0 0 14 4 A 2 2 0 0 0 12 2 z M 12 7 C 9.269 7 7 7.9087969 7 9.2167969 L 7 10 L 6 10 C 4.9069372 10 4 10.906937 4 12 L 4 20 C 4 21.093063 4.9069372 22 6 22 L 18 22 C 19.093063 22 20 21.093063 20 20 L 20 12 C 20 10.906937 19.093063 10 18 10 L 17 10 L 17 9.2167969 C 17 7.9087969 14.731 7 12 7 z M 6 12 L 18 12 L 18 20 L 15.962891 20 C 15.77054 18.812134 14.05927 18 12 18 C 9.9407301 18 8.2294596 18.812134 8.0371094 20 L 6 20 L 6 12 z M 12 13 A 2 2 0 0 0 10 15 A 2 2 0 0 0 12 17 A 2 2 0 0 0 14 15 A 2 2 0 0 0 12 13 z"></path></svg>
+            <div class="cs-stories-button-tooltip cs-stories-button-tooltip-slide" style="pointer-events: none; z-index: 9999; visibility: visible; position: absolute; margin: 0px; left: 0;background: #5f6466; border-radius: 5px;padding: 0.25vh 1vh;font-size: 1.45vh;"><div class="tippy-box" data-state="visible" tabindex="-1" data-animation="scale" role="tooltip" data-placement="bottom" style="max-width: 350px; transition-duration: 150ms;"><div class="tippy-content" data-state="visible" style="transition-duration: 150ms;"><div>Stories</div></div><div class="tippy-arrow" style="position: absolute; left: -7px; transform: translate(32px, 0px);"></div></div></div>
+        </div>
     `)
 
-    jQuery('.screen').prepend(_CSS_container)
-    jQuery('.app-drawer').append(_CSS_button)
-
+    screen.prepend(_CSS_container)
+    drawer.append(_CSS_button)
+    
     return {
         container: _CSS_container,
         button: _CSS_button,
@@ -154,7 +163,7 @@ window.CS_STORIES.getStoryTemplate = (story, lang) => { // Each individual story
 }
 
 jQuery('body').on('DOMSubtreeModified', event => {
-    if (jQuery('.screen .app-drawer').length > 0)
+    if (jQuery('.screen .app-drawer').length > 0 || jQuery('.grid.grid-cols-4.w-full.h-full').length > 0)
         window.CS_STORIES.hookDocument()
     else
         window.CS_STORIES.unhookDocument()
