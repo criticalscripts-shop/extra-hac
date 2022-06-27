@@ -1,4 +1,4 @@
--- The ready-to-use map for this entry can be found at: https://github.com/criticalscripts-shop/extra-hac/cs-hall/maps/concert-sandy
+-- The ready-to-use map for this entry can be found at: https://github.com/criticalscripts-shop/extra-hac/tree/main/cs-hall/maps/concert-sandy
 -- The original map this entry was inspired for can be found at: https://gta5-mods.com/maps/concert-los-santos
 
 ['concert_sandy'] = {
