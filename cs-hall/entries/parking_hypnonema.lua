@@ -27,7 +27,7 @@
     ['scaleform'] = {
         ['solid'] = true,
         ['position'] = vector3(-1678.949, -928.3431, 20.6290932),
-        ['rotation'] = vector3(0, 0, -140.0),
+        ['rotation'] = vector3(0.0, 0.0, -140.0),
         ['scale'] = vector3(0.969999969, 0.484999985, -0.1)
     },
 

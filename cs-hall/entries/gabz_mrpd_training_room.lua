@@ -50,7 +50,7 @@
     ['scaleform'] = {
         ['solid'] = false,
         ['position'] = vector3(439.47, -987.10, 36.91),
-        ['rotation'] = vector3(0, 0, -90),
+        ['rotation'] = vector3(0.0, 0.0, -90.0),
         ['scale'] = vector3(0.102, 0.075, 0.0)
     },
 
