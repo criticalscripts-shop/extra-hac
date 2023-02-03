@@ -3,7 +3,7 @@
 ['gabz_mrpd_training_room'] = {
     ['enabled'] = true,
     ['autoAdjustTime'] = false,
-    ['idleWallpaperUrl'] = 'https://files.criticalscripts.shop/cs-hall-dui/wallpaper.png',
+    ['idleWallpaperUrl'] = 'https://cfx-nui-' .. GetCurrentResourceName() .. '/client/dui/images/wallpaper.png',
     ['maxVolumePercent'] = 50,
     ['smokeFxMultiplier'] = 3,
     ['smokeTimeoutMs'] = 5000,

@@ -6,7 +6,7 @@
     ['autoAdjustTime'] = false,
     ['maxVolumePercent'] = 50,
 
-    ['idleWallpaperUrl'] = 'https://files.criticalscripts.shop/cs-ves-dui/wallpaper.png',
+    ['idleWallpaperUrl'] = 'https://cfx-nui-' .. GetCurrentResourceName() .. '/client/dui/images/wallpaper.png',
     ['lowPass'] = nil,
 
     ['replacers'] = {
