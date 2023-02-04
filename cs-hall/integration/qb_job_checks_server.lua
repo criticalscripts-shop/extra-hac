@@ -53,8 +53,9 @@ function CanAccessControllerInterface(source, area)
     if (qbCoreFramework) then
         local qbPlayer = qbCoreFramework.Functions.GetPlayer(source)
         local qbJob = qbPlayer and (qbPlayer.PlayerData and qbPlayer.PlayerData.job or qbPlayer.job)
-        local qbJobName = qbJob and qbJob.name
-        local qbJobGrade = qbJob and qbJob.grade and qbJob.grade.level
+        local qbGang = qbPlayer and (qbPlayer.PlayerData and qbPlayer.PlayerData.gang or qbPlayer.gang)
+        local qbJobName = qbJob and qbJob.name and qbGang and qbGang.name
+        local qbJobGrade = qbJob and qbJob.grade and qbJob.grade.level and qbGang.grade and qbGang.grade.level
 
         if (qbJobName and qbJobGrade) then
             for i = 1, #qbJobGlobalControllers do
