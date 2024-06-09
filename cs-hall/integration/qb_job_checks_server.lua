@@ -18,8 +18,12 @@ local qbJobGlobalControllers = { -- QB jobs that can access /hall is all areas.
 
 local qbJobAreaControllers = { -- QB jobs that can access /hall is specific areas.
     ['vanilla_unicorn'] = { -- Remove this to disable it, or add more entries as you wish.
-        {'unicorn', 2}, -- QB "unicorn" job with 2 grade level can access "vanilla_unicorn" area.
-        'dj' -- QB "dj" job can access /hall in "vanilla_unicorn" regardless of grade level.
+        {'vanilla', 2}, -- QB "unicorn" job with 2 grade level can access "vanilla_unicorn" area.
+        'vanilla' -- QB "dj" job can access /hall in "vanilla_unicorn" regardless of grade level.
+    --},                               --BELOW THIS LINE IS A NEW SET UP IF YOU WISH TO ADD MORE SO YOU WILL HAVE UNDERSTANDING ON HOW TO DO IT 
+    --['|NEW_LOCATION_GOES_HERE'] = { -- Remove this to disable it, or add more entries as you wish.
+        --{'JOB_NAME_HERE', 2}, -- QB "police" job with 2 grade level can access "teststage" area.
+        --'dj', -- QB "dj" job can access /hall in "teststage" regardless of grade level.
     }
 }
 
