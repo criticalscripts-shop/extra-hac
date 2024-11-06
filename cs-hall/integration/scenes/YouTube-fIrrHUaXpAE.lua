@@ -1,4 +1,4 @@
-RegisterScene('YouTube:fIrrHUaXpAE', {
+RegisterScene('Url:https://www.youtube.com/watch?v=fIrrHUaXpAE', {
     'vanilla_unicorn',
     'gabz_vanilla_unicorn'
 }, function(identifier)
