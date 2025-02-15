@@ -309,7 +309,6 @@
             this.source = source
             this.duration = null
             this.seeked()
-
         }
 
         time() {
@@ -321,6 +320,27 @@
 
             if (!this.stopped)
                 this.container.style.display = 'block'
+        }
+
+        screenshot() {
+            if ((!this.element) || (!this.playing) || (!this.source) || (!this.player) || this.element.clientWidth <= 0 || this.element.clientHeight <= 0)
+                return null
+    
+            this.canvas.width = this.element.clientWidth
+            this.canvas.height = this.element.clientHeight
+            this.canvas.getContext('2d').drawImage(this.element, 0, 0, this.canvas.width, this.canvas.height)
+    
+            const image = new Image()
+    
+            image.width = this.canvas.width
+            image.height = this.canvas.height
+            image.src = this.canvas.toDataURL()
+    
+            return image
+        }
+    
+        dynamic() {
+            return true
         }
 
         hide() {
