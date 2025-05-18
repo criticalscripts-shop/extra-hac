@@ -219,7 +219,7 @@ RegisterScene('Url:https://www.youtube.com/watch?v=fIrrHUaXpAE', {
         [145] = {
             fn = function()
                 Wait(50)
-                Scene.SetIdleWallpaperUrl('https://i.imgur.com/9XFQNQk.gif')
+                Scene.SetIdleWallpaperUrl('https://i.ibb.co/JFSzFyp1/9XFQNQk.gif')
                 Wait(2850)
                 Scene.SetIdleWallpaperUrl('none')
             end
