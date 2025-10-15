@@ -1,6 +1,3 @@
-// An expansion controller for loading Twitch URLs, use at your own risk!
-// Append the following code inside the "cs-hall/client/dui/javascript/controllers/expansions.js" file to enable this controller.
-
 ;(() => {
     Twitch = undefined
 
@@ -40,14 +37,17 @@
             this.hooked = false
             this.showing = true
 
+            this.canvas = document.createElement('canvas')
+
             const placeholder = document.createElement('div')
 
             placeholder.id = elementId
             placeholder.classList.add('expansion-controller')
 
             this.container = document.body.appendChild(placeholder)
-            this.container.style.display = 'none'
             this.ready = true
+
+            this.container.style.display = 'none'
 
             setTimeout(() => cb(), 0)
         }
@@ -76,9 +76,6 @@
             player.addEventListener(Twitch.Player.PLAY, event => {
                 if (!this.hooked)
                     this.hook()
-
-                if (this.showing)
-                    this.container.style.display = 'block'
 
                 this.playing = true
                 this.stopped = false
@@ -112,8 +109,6 @@
                     if (contentClassificationButton)
                         contentClassificationButton.click()
                 }, buttonsCheckIntervalMs)
-
-                this.manager.hideSpinner()
 
                 if (this.pending.pause)
                     this.pause()
@@ -189,10 +184,10 @@
             if ((!this.source) || (!this.ready))
                 return
 
-            this.manager.showSpinner()
-
             if (this.stopped)
                 this.set(this.source)
+
+            this.container.style.display = 'block'
 
             this.awaitingPlayingEvent = true
             this.pending.pause = false
@@ -243,12 +238,12 @@
             if ((!this.source) || (!this.ready))
                 return
 
+            this.container.style.display = 'none'
             this.duration = null
             this.awaitingPlayingEvent = false
             this.stopped = true
             this.pending.pause = false
             this.pending.seek = null
-            this.container.style.display = 'none'
 
             if (this.player)
                 this.player.pause()
@@ -256,7 +251,6 @@
             clearTimeout(this.playerCheckTimeout)
             clearInterval(this.vodCheckerInterval)
 
-            this.manager.hideSpinner()
             this.seeked()
         }
 
@@ -295,8 +289,6 @@
             else if (source.startsWith('video:'))
                 this.attachPlayer(source.replace('video:', ''), 'video')
 
-            this.container.style.display = 'none'
-
             if (this.player)
                 this.player.pause()
 
@@ -317,9 +309,6 @@
 
         show() {
             this.showing = true
-
-            if (!this.stopped)
-                this.container.style.display = 'block'
         }
 
         screenshot() {
@@ -345,7 +334,6 @@
 
         hide() {
             this.showing = false
-            this.container.style.display = 'none'
         }
     }
 
