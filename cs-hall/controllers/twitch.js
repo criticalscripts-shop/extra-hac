@@ -1,3 +1,6 @@
+// An expansion controller for loading Twitch URLs, use at your own risk!
+// Append the following code inside the "cs-hall/client/dui/javascript/controllers/expansions.js" file to enable this controller.
+
 ;(() => {
     Twitch = undefined
 
